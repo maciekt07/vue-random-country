@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+$themeClr: #8e37ff;
+* {
+  // color-scheme: dark;
+  box-sizing: border-box;
+  &::selection {
+    background-color: lighten($color: $themeClr, $amount: 10);
+  }
+}
+body {
+  margin: 0;
+  background: #15192c;
+  font-family: poppins;
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@function isColorDark($color) {
+  $red: red($color);
+  $green: green($color);
+  $blue: blue($color);
+  $l: 1 - calc((0.299 * $red + 0.587 * $green + 0.114 * $blue) / 255);
+  @if ($l < 0.41) {
+    @return #000000;
+  } @else {
+    @return #ffffff;
+  }
+}
+
+@mixin Btn($clr) {
+  outline: none;
+  border: none;
+  font-weight: 600;
+  padding: 15px 30px;
+  font-size: 28px;
+  border-radius: 20px;
+  color: isColorDark($clr);
+  background: $clr;
+  cursor: pointer;
+  transition: 0.3s all;
+  &:hover {
+    border-color: lighten($color: $clr, $amount: 8);
+    box-shadow: 0px 0px 24px 2px transparentize($color: $clr, $amount: 0.5);
+  }
+}
