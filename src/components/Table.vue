@@ -1,6 +1,5 @@
 <script setup>
-const numberWithSpaces = (x) =>
-  x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+import { numberWithSpaces } from "../utils/formatNumber";
 defineProps({
   capital: String,
   population: Number,

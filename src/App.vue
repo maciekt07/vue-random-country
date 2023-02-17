@@ -147,6 +147,7 @@ select {
   color-scheme: light;
   font-size: 16px;
   font-family: poppins;
+  max-width: 250px;
 }
 
 nav {
